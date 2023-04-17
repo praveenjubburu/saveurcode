@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Code</title>
+</head>
+<body>
+<div style="  position: -webkit-sticky;position: sticky;top: 5px;background:white">
+    <a href="/home" style="padding:5px;">Home</a>
+    <a th:href="@{'/edit/'+${id}}" style="padding:5px;">Edit</a>
+    <a th:href="@{'/delete/'+${id}}" style="padding:5px;">Delete</a>
+    <a th:href="@{/download/{id}(id=${id})}" style="padding:5px;">Download Code</a>
+    <a th:href="@{/share/{id}(id=${id})}" style="padding:5px">Share</a>
+
+</div>
+<pre th:text="${code}"></pre>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>new Content</title>
+</head>
+<body style="text-align:center;">
+<form th:action="@{/saveContent}" th:object="${content}" method="post" enctype="multipart/form-data">
+  <p>Name</p>
+  <input type="text" th:field="*{name}">
+    <input type="hidden" th:field="*{id}" th:value="${id}">
+  <p>Code</p>
+  <textarea  th:field="*{code}" rows="50" cols="150" id="codeFile" name="codeFile" class="form-control"></textarea></br>
+
+    <input type="file" id="codeFileInput" name="codeFileInput" accept=".txt"/>
+
+    <input type="submit">
+</form>
+<script th:inline="javascript">
+  function loadFile() {
+    var fileInput = document.getElementById('codeFileInput');
+    var file = fileInput.files[0];
+    if (file) {
+      var reader = new FileReader();
+      reader.onload = function() {
+        var codeFileTextarea = document.getElementById('codeFile');
+        codeFileTextarea.value = reader.result;
+      }
+      reader.readAsText(file);
+    } else {
+      alert('Please select a file.');
+    }
+  }
+
+  // Automatically load file if selected
+  var fileInput = document.getElementById('codeFileInput');
+  fileInput.addEventListener('change', loadFile);
+</script>
+
+</body>
+</html>

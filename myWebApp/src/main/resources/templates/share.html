@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>StoreYourCode.com</title>
+</head>
+<body>
+<form action="#" th:action="@{/send}" method="post">
+    <p>Email</p>
+  <input type="email" name="email"></br>
+    <input type="hidden" name="id" th:value="${id}"></br>
+    <input type="submit" value="send">
+</form>
+</body>
+</html>

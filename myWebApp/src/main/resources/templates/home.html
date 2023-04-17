@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+    <div style="display:flex;justify-content:space-between;margin-left:10px;margin-right:10px">
+        <a href="/newContent">New</a>
+        <a href="/logout">LogOut</a>
+    </div>
+    <div th:each="item : ${List}" style="margin-left:10px;">
+        <a th:href="@{'/content/'+${item.getId()}}"><p th:text="${item.name}" style="text-decoration: none;"></p></a>
+    </div>
+</div>
+</body>
+</html>
